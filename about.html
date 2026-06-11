@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>NOVAÉON · About | Future Atelier & Philosophy</title>
+  <!-- Google Fonts + simple reset -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #faf9fc;
+      color: #17131c;
+      line-height: 1.5;
+    }
+
+    /* brand colors — NOVAÉON identity */
+    :root {
+      --brand-dark: #110b1a;
+      --brand-deep: #2a1e3c;
+      --brand-violet: #b17ef5;
+      --brand-silver: #eae6f0;
+      --brand-soft: #f5f1fe;
+      --accent-glow: #c084fc;
+      --card-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.02);
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    /* header navigation */
+    .site-header {
+      background: white;
+      backdrop-filter: blur(0px);
+      border-bottom: 1px solid #e9e4f0;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255, 255, 255, 0.96);
+    }
+
+    .nav-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .brand-name {
+      font-size: 1.9rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #2a1e3c 0%, #8b5cf6 70%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      text-decoration: none;
+    }
+
+    .brand-sup {
+      font-size: 0.8rem;
+      font-weight: 500;
+      background: #ede9fe;
+      padding: 2px 10px;
+      border-radius: 30px;
+      color: #4c2c7a;
+      letter-spacing: 0.3px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      font-weight: 500;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #2b2630;
+      transition: 0.2s;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--brand-violet);
+    }
+
+    .header-icons {
+      display: flex;
+      gap: 20px;
+    }
+
+    .icon-btn {
+      background: none;
+      border: none;
+      font-size: 1.3rem;
+      cursor: default;
+      color: #332a3f;
+    }
+
+    /* about hero */
+    .about-hero {
+      background: linear-gradient(125deg, #f0eaff 0%, #faf5ff 100%);
+      padding: 72px 0 64px;
+      margin-bottom: 40px;
+      border-bottom: 1px solid #e9e0fc;
+    }
+
+    .about-title {
+      font-size: 3.2rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #1a1127, #7c4fcf);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      margin-bottom: 20px;
+      max-width: 800px;
+    }
+
+    .about-sub {
+      font-size: 1.2rem;
+      color: #3a2e52;
+      max-width: 680px;
+      line-height: 1.4;
+      font-weight: 500;
+    }
+
+    .back-links {
+      margin-top: 32px;
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .back-home-link {
+      display: inline-block;
+      background: #ede9fe;
+      padding: 8px 20px;
+      border-radius: 60px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.85rem;
+      color: #3d2c62;
+      transition: 0.2s;
+    }
+
+    .back-home-link:hover {
+      background: #ddd1fc;
+    }
+
+    /* content sections */
+    .story-section {
+      margin: 60px 0;
+    }
+
+    .two-columns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 48px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .col-text {
+      flex: 1.2;
+      min-width: 260px;
+    }
+
+    .col-text h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      letter-spacing: -0.3px;
+      color: #1e162c;
+      border-left: 5px solid #b17ef5;
+      padding-left: 20px;
+    }
+
+    .col-text p {
+      margin-bottom: 20px;
+      color: #2d253f;
+      font-size: 1.05rem;
+    }
+
+    .col-image {
+      flex: 1;
+      min-width: 260px;
+      border-radius: 36px;
+      overflow: hidden;
+      box-shadow: var(--card-shadow);
+    }
+
+    .col-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .col-image:hover img {
+      transform: scale(1.02);
+    }
+
+    .highlight-quote {
+      background: linear-gradient(115deg, #ede7ff, #f6f0ff);
+      padding: 56px 48px;
+      border-radius: 48px;
+      margin: 56px 0;
+      text-align: center;
+    }
+
+    .highlight-quote p {
+      font-size: 1.7rem;
+      font-weight: 600;
+      line-height: 1.3;
+      max-width: 860px;
+      margin: 0 auto;
+      color: #1f1730;
+    }
+
+    .highlight-quote span {
+      display: block;
+      margin-top: 24px;
+      font-size: 1rem;
+      font-weight: 500;
+      color: #5e4b8b;
+      letter-spacing: 1px;
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 32px;
+      margin: 48px 0 60px;
+    }
+
+    .value-card {
+      background: white;
+      border-radius: 32px;
+      padding: 32px 24px;
+      text-align: center;
+      box-shadow: var(--card-shadow);
+      border: 1px solid #f0eafc;
+      transition: all 0.2s;
+    }
+
+    .value-card:hover {
+      transform: translateY(-6px);
+      border-color: #d9cafc;
+    }
+
+    .value-icon {
+      font-size: 2.8rem;
+      margin-bottom: 20px;
+    }
+
+    .value-card h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .value-card p {
+      color: #4a3d63;
+    }
+
+    .team-moment {
+      background: #110b1a;
+      border-radius: 48px;
+      padding: 52px 40px;
+      margin: 60px 0 40px;
+      color: #e2d9fc;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .team-moment h3 {
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 12px;
+    }
+
+    .team-moment p {
+      max-width: 500px;
+      color: #cbbef5;
+    }
+
+    .team-moment .badge {
+      background: #2f234b;
+      padding: 16px 28px;
+      border-radius: 70px;
+      font-weight: 600;
+    }
+
+    /* footer */
+    .site-footer {
+      background: #110b1a;
+      color: #ccc3df;
+      padding: 48px 0 32px;
+      margin-top: 40px;
+      border-radius: 32px 32px 0 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 40px;
+    }
+
+    .footer-logo h4 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #dad2ff, #b794f4);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links div a {
+      display: block;
+      color: #bcb1da;
+      text-decoration: none;
+      margin-bottom: 12px;
+      font-size: 0.9rem;
+    }
+
+    .footer-links div a:hover {
+      color: #c9b5ff;
+    }
+
+    .copyright {
+      text-align: center;
+      margin-top: 48px;
+      font-size: 0.8rem;
+      border-top: 1px solid #2b233b;
+      padding-top: 28px;
+    }
+
+    @media (max-width: 780px) {
+      .about-title {
+        font-size: 2.2rem;
+      }
+      .highlight-quote p {
+        font-size: 1.3rem;
+      }
+      .two-columns {
+        flex-direction: column;
+      }
+      .nav-links {
+        gap: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <div class="nav-bar">
+      <div class="logo-area">
+        <a href="#" class="brand-name" style="text-decoration: none;">NOVAÉON</a>
+        <span class="brand-sup">✧  future core  ✧</span>
+      </div>
+      <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="about.html">About Us</a>
+      </div>
+      <div class="header-icons">
+        <span class="icon-btn">🔍</span>
+        <span class="icon-btn">👜</span>
+        <span class="icon-btn">👤</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="about-hero">
+    <div class="container">
+      <h1 class="about-title">Where craft meets <br>the future horizon.</h1>
+      <p class="about-sub">NOVAÉON is a design atelier dedicated to sculptural essentials, radical material research, and objects that resonate beyond their time.</p>
+      <div class="back-links">
+        <a href="#" class="back-home-link">← explore shop</a>
+        <a href="#" class="back-home-link">✧ our manifesto</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- brand origin story -->
+    <div class="story-section">
+      <div class="two-columns">
+        <div class="col-text">
+          <h2>Origins: born from a <br>void of meaning.</h2>
+          <p>Founded in 2023 by designer and materials researcher Elena Voss, NOVAÉON emerged from a simple belief: in an age of mass production, people crave artifacts with memory, texture, and intention. Our first studio — a converted warehouse in Los Angeles — became a laboratory for merging biopolymers, recycled aerospace alloys, and sculptural silhouettes.</p>
+          <p>What started as a capsule of 50 hand-formed vessels is now a global collective of architects, ceramicists, and digital futurists. Each piece carries a unique identifier and is designed to be kept for generations, not seasons.</p>
+        </div>
+        <div class="col-image">
+          <img src="https://picsum.photos/id/159/700/500" alt="NOVAÉON studio image" loading="lazy" onerror="this.src='https://picsum.photos/id/20/700/500'">
+        </div>
+      </div>
+    </div>
+
+    <!-- philosophical quote block -->
+    <div class="highlight-quote">
+      <p>“Objects are anchors for our attention. We design for the neo-analogue soul — where the digital and physical embrace without friction.”</p>
+      <span>— Elena Voss, Creative Director & Founder</span>
+    </div>
+
+    <!-- mission + process image -->
+    <div class="story-section">
+      <div class="two-columns" style="flex-direction: row-reverse;">
+        <div class="col-text">
+          <h2>Materials as a <br>moral choice.</h2>
+          <p>We reject planned obsolescence. Every NOVAÉON artifact is crafted using low-waste 3D printing, reclaimed metals, and bio-based resins that are 70% plant-derived. Our packaging is 100% compostable and we offset 2x the carbon of every shipment.</p>
+          <p>In 2025, we launched the “Orbit Circular Program” — customers may return worn pieces to be remolded into new editions, earning credit toward future drops. It’s our commitment to a closed-loop future.</p>
+        </div>
+        <div class="col-image">
+          <img src="https://picsum.photos/id/29/700/500" alt="sustainable materials studio" loading="lazy">
+        </div>
+      </div>
+    </div>
+
+    <!-- core values as cards -->
+    <h2 style="font-size: 1.9rem; margin: 40px 0 16px; text-align: center;">✦  NOVAÉON ethos  ✦</h2>
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="value-icon">🌱</div>
+        <h3>Radical Sustainability</h3>
+        <p>Circular by design, low-impact by necessity. We are working towards net-positive by 2028.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">🎨</div>
+        <h3>Sculptural Language</h3>
+        <p>Every curve, edge, and finish is considered as an artistic gesture — functional yet poetic.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">🤝</div>
+        <h3>Radical Transparency</h3>
+        <p>We share our supply chain, cost breakdowns, and impact metrics openly with our orbit members.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">🔮</div>
+        <h3>Future Craft</h3>
+        <p>Ancient techniques merged with generative design, digital twins, and immersive storytelling.</p>
+      </div>
+    </div>
+
+    <!-- team studio story with image -->
+    <div class="story-section">
+      <div class="two-columns">
+        <div class="col-text">
+          <h2>The atelier: a <br>constellation of makers.</h2>
+          <p>Our team spans Los Angeles, Kyoto, and Berlin — a fluid network of industrial designers, sound artists, and material scientists. We gather twice a year for “resonance labs”, experimenting with novel textures, acoustic properties, and interactive surfaces.</p>
+          <p>Unlike traditional brands, we release only four collections per year, each limited to 500 units or fewer. This scarcity isn't artificial — it's the natural result of hand-finishing each object and respecting our material limits.</p>
+        </div>
+        <div class="col-image">
+          <img src="https://picsum.photos/id/91/700/500" alt="NOVAÉON team workspace" loading="lazy">
+        </div>
+      </div>
+    </div>
+
+    <!-- community callout -->
+    <div class="team-moment">
+      <div>
+        <h3>Join the orbit →</h3>
+        <p>NOVAÉON isn't just a shop — it's a membership for curious minds. Members get first access, digital artifact twins, and invites to studio salons.</p>
+      </div>
+      <div class="badge">
+        ✦ 7,200+ orbit members  ✦
+      </div>
+    </div>
+
+    <!-- recognition / impact numbers -->
+    <div style="display: flex; flex-wrap: wrap; gap: 48px; justify-content: space-between; background: #faf5ff; border-radius: 48px; padding: 48px 40px; margin: 32px 0 56px;">
+      <div><strong style="font-size: 2rem; font-weight: 800;">12k+</strong><br>trees planted via returns</div>
+      <div><strong style="font-size: 2rem; font-weight: 800;">8.2 tons</strong><br>waste diverted from landfill</div>
+      <div><strong style="font-size: 2rem; font-weight: 800;">4 global</strong><br>material research partners</div>
+      <div><strong style="font-size: 2rem; font-weight: 800;">100%</strong><br>renewable studio energy</div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <h4>NOVAÉON</h4>
+        <p style="margin-top: 12px; max-width: 240px;">Radical essentials — future artifacts, crafted today. Join us in shaping a more intentional material culture.</p>
+      </div>
+      <div class="footer-links">
+        
+      </div>
+    </div>
+    <div class="copyright">
+      © 2026 NOVAÉON — design that endures. All stories and artifacts are prototypes for a better future.
+    </div>
+  </div>
+</footer>
+
+<!-- smooth scroll for any hash links -->
+<script>
+  document.querySelectorAll('.back-home-link, .brand-name').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (href === '#') {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    });
+  });
+  // lazy image fallback
+  const images = document.querySelectorAll('.col-image img');
+  images.forEach(img => {
+    img.addEventListener('error', function() {
+      if (!this.dataset.fallback) {
+        this.dataset.fallback = 'true';
+        this.src = 'https://picsum.photos/id/42/700/500';
+      }
+    });
+  });
+</script>
+</body>
+</html>

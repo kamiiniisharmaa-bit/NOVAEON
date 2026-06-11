@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>NOVAÉON | futuristic essentials</title>
+  <!-- Google Fonts + simple reset -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #faf9fc;
+      color: #17131c;
+      line-height: 1.4;
+    }
+
+    /* unique brand colors: deep aubergine + lunar silver + electric violet */
+    :root {
+      --brand-dark: #110b1a;
+      --brand-deep: #2a1e3c;
+      --brand-violet: #b17ef5;
+      --brand-silver: #eae6f0;
+      --brand-soft: #f5f1fe;
+      --accent-glow: #c084fc;
+      --card-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.02);
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    /* header / navigation */
+    .site-header {
+      background: white;
+      backdrop-filter: blur(0px);
+      border-bottom: 1px solid #e9e4f0;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255, 255, 255, 0.96);
+    }
+
+    .nav-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .brand-name {
+      font-size: 1.9rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #2a1e3c 0%, #8b5cf6 70%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .brand-sup {
+      font-size: 0.8rem;
+      font-weight: 500;
+      background: #ede9fe;
+      padding: 2px 10px;
+      border-radius: 30px;
+      color: #4c2c7a;
+      letter-spacing: 0.3px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      font-weight: 500;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #2b2630;
+      transition: 0.2s;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--brand-violet);
+    }
+
+    .header-icons {
+      display: flex;
+      gap: 20px;
+    }
+
+    .icon-btn {
+      background: none;
+      border: none;
+      font-size: 1.3rem;
+      cursor: default;
+      color: #332a3f;
+    }
+
+    /* hero section with unique visual */
+    .hero {
+      padding: 60px 0 56px;
+      background: linear-gradient(112deg, #faf7ff 0%, #f0ebfa 100%);
+      border-radius: 0 0 48px 48px;
+      margin-bottom: 40px;
+    }
+
+    .hero-grid {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+    }
+
+    .hero-text {
+      flex: 1.2;
+      min-width: 260px;
+    }
+
+    .hero-badge {
+      background: #ded3fc;
+      display: inline-block;
+      padding: 5px 14px;
+      border-radius: 40px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #2b1b46;
+      margin-bottom: 24px;
+    }
+
+    .hero-text h1 {
+      font-size: 3.4rem;
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: #110b1a;
+      margin-bottom: 20px;
+    }
+
+    .hero-highlight {
+      color: #8b5cf6;
+      border-bottom: 3px solid #c084fc;
+      display: inline-block;
+    }
+
+    .hero-text p {
+      font-size: 1.1rem;
+      color: #3c3448;
+      margin-bottom: 32px;
+      max-width: 480px;
+    }
+
+    .cta-btn {
+      background: var(--brand-dark);
+      color: white;
+      border: none;
+      padding: 14px 36px;
+      border-radius: 46px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.05);
+    }
+
+    .cta-btn:hover {
+      background: #2f2147;
+      transform: translateY(-2px);
+    }
+
+    .hero-image {
+      flex: 1;
+      background: radial-gradient(circle at 30% 40%, #e9e0ff, #d9cefc);
+      border-radius: 48px;
+      padding: 24px;
+      text-align: center;
+    }
+
+    .hero-image img {
+      max-width: 100%;
+      width: 380px;
+      border-radius: 32px;
+      filter: drop-shadow(0 18px 20px rgba(0,0,0,0.1));
+      object-fit: cover;
+    }
+
+    /* section headers */
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin: 48px 0 24px 0;
+      letter-spacing: -0.01em;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-title span {
+      background: var(--brand-deep);
+      color: white;
+      font-size: 1rem;
+      padding: 2px 12px;
+      border-radius: 40px;
+    }
+
+    /* product grid */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      gap: 32px;
+      margin: 28px 0 56px;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 32px;
+      overflow: hidden;
+      transition: all 0.25s ease;
+      box-shadow: var(--card-shadow);
+      border: 1px solid #f2ecfe;
+    }
+
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 28px 38px -16px rgba(92, 56, 138, 0.2);
+      border-color: #d9cafc;
+    }
+
+    .product-img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      background: #f0ebf7;
+      transition: transform 0.4s ease;
+    }
+
+    .product-card:hover .product-img {
+      transform: scale(1.02);
+    }
+
+    .product-info {
+      padding: 18px 18px 22px;
+    }
+
+    .product-category {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #8b6cb0;
+      font-weight: 600;
+    }
+
+    .product-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin: 8px 0 6px;
+    }
+
+    .price {
+      font-weight: 800;
+      font-size: 1.35rem;
+      color: #1e1828;
+      margin: 12px 0 0;
+    }
+
+    .price small {
+      font-size: 0.8rem;
+      font-weight: 400;
+      color: #777185;
+    }
+
+    /* banner / unique brand story */
+    .brand-story {
+      background: linear-gradient(115deg, #ede7ff 0%, #faf5ff 100%);
+      border-radius: 48px;
+      padding: 48px 40px;
+      margin: 40px 0 60px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 36px;
+    }
+
+    .story-text {
+      flex: 2;
+    }
+
+    .story-text h3 {
+      font-size: 1.9rem;
+      font-weight: 700;
+      background: linear-gradient(120deg, #2a1e3c, #9166e0);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      margin-bottom: 12px;
+    }
+
+    .story-text p {
+      color: #2d253b;
+      max-width: 480px;
+      line-height: 1.5;
+    }
+
+    .story-icon {
+      background: white;
+      padding: 12px 24px;
+      border-radius: 80px;
+      font-weight: 700;
+      font-size: 1rem;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.02);
+    }
+
+    /* footer */
+    .site-footer {
+      background: #110b1a;
+      color: #ccc3df;
+      padding: 48px 0 32px;
+      margin-top: 40px;
+      border-radius: 32px 32px 0 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 40px;
+    }
+
+    .footer-logo h4 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #dad2ff, #b794f4);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links div a {
+      display: block;
+      color: #bcb1da;
+      text-decoration: none;
+      margin-bottom: 12px;
+      font-size: 0.9rem;
+    }
+
+    .footer-links div a:hover {
+      color: #c9b5ff;
+    }
+
+    .copyright {
+      text-align: center;
+      margin-top: 48px;
+      font-size: 0.8rem;
+      border-top: 1px solid #2b233b;
+      padding-top: 28px;
+    }
+
+    @media (max-width: 780px) {
+      .hero-text h1 {
+        font-size: 2.3rem;
+      }
+      .nav-links {
+        gap: 20px;
+      }
+      .section-title {
+        font-size: 1.7rem;
+      }
+      .brand-story {
+        padding: 32px 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <div class="nav-bar">
+      <div class="logo-area">
+        <span class="brand-name">NOVAÉON</span>
+        <span class="brand-sup">✧  future core  ✧</span>
+      </div>
+      <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="about.html">About Us</a>
+      </div>
+      <div class="header-icons">
+        <span class="icon-btn">🔍</span>
+        <span class="icon-btn">👜</span>
+        <span class="icon-btn">👤</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- hero section with unique image -->
+  <div class="hero">
+    <div class="container hero-grid">
+      <div class="hero-text">
+        <div class="hero-badge">✦  limited capsule vol.2  ✦</div>
+        <h1>sculptural <span class="hero-highlight">essentials</span><br>for digital natives</h1>
+        <p>NOVAÉON merges avant-garde design with sustainable futurism. Explore objects that feel like heirlooms from tomorrow.</p>
+        <button class="cta-btn">Shop the drop →</button>
+      </div>
+      <div class="hero-image">
+        <!-- unique hero image: futuristic modular bag / abstract product (high quality placeholder but unique look) -->
+        <img src="https://placecats.com/neo/500/500?random=1" alt="NOVAÉON signature accessory" 
+             style="object-fit: cover; width: 100%; max-width: 380px; border-radius: 36px; background: #e2d4ff;"
+             onerror="this.onerror=null; this.src='https://picsum.photos/id/20/500/500';">
+        <!-- Note: placecats used for quirky uniqueness but we ensure alternative high-quality ecom style -->
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- featured collection heading -->
+    <div class="section-title">
+      ✦  signature objects  ✦
+      <span>new arrival</span>
+    </div>
+    
+    <!-- product grid with real images and unique branding -->
+    <div class="product-grid">
+      <!-- product 1 -->
+      <div class="product-card">
+        <img class="product-img" src="https://picsum.photos/id/30/600/600" alt="NOVAÉON resonance lamp" 
+             loading="lazy" onerror="this.src='https://picsum.photos/id/26/600/600'">
+        <div class="product-info">
+          <div class="product-category">luminaires</div>
+          <div class="product-title">Resonance Lamp</div>
+          <div class="price">$249 <small>USD</small></div>
+        </div>
+      </div>
+      <!-- product 2 -->
+      <div class="product-card">
+        <img class="product-img" src="https://picsum.photos/id/1/600/600" alt="modular vessel" 
+             loading="lazy">
+        <div class="product-info">
+          <div class="product-category">objets</div>
+          <div class="product-title">Orbital Vessel</div>
+          <div class="price">$189 <small>USD</small></div>
+        </div>
+      </div>
+      <!-- product 3 -->
+      <div class="product-card">
+        <img class="product-img" src="https://picsum.photos/id/36/600/600" alt="wearable sculptural bag" 
+             loading="lazy">
+        <div class="product-info">
+          <div class="product-category">carry goods</div>
+          <div class="product-title">Capsule Sling</div>
+          <div class="price">$329 <small>USD</small></div>
+        </div>
+      </div>
+      <!-- product 4 -->
+      <div class="product-card">
+        <img class="product-img" src="https://picsum.photos/id/59/600/600" alt="kinetic desk object" 
+             loading="lazy">
+        <div class="product-info">
+          <div class="product-category">desk + edit</div>
+          <div class="product-title">Kinetic Spire</div>
+          <div class="price">$97 <small>USD</small></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- brand unique story banner with high-end feel -->
+    <div class="brand-story">
+      <div class="story-text">
+        <h3>◈  NOVAÉON  ◈<br>designed for the neo-analogue era</h3>
+        <p>Each piece is forged from recycled aerospace alloys and bio-resins. We believe objects should carry emotional resonance — not just function. <strong>#NOVAÉON_core</strong></p>
+      </div>
+      <div class="story-icon">
+        🌙  signature texture  |  limited 500
+      </div>
+    </div>
+
+    <!-- another curated section: trending now  (more images) -->
+    <div class="section-title">
+      ✦  trending now  ✦
+    </div>
+    <div class="product-grid">
+      <div class="product-card">
+        <img class="product-img" src="https://picsum.photos/id/26/600/600" alt="acoustic sculpture" loading="lazy">
+        <div class="product-info">
+          <div class="product-category">sculptural audio</div>
+          <div class="product-title">Echo Panel</div>
+          <div class="price">$439 <small>USD</small></div>
+        </div>
+      </div>
+      <div class="product-card">
+        <img class="product-img" src="https://picsum.photos/id/229/600/600" alt="folding wearable pack" loading="lazy">
+        <div class="product-info">
+          <div class="product-category">modular bags</div>
+          <div class="product-title">Flux Backpack</div>
+          <div class="price">$399 <small>USD</small></div>
+        </div>
+      </div>
+      <div class="product-card">
+        <img class="product-img" src="https://picsum.photos/id/20/600/600" alt="desk companion light" loading="lazy">
+        <div class="product-info">
+          <div class="product-category">illumination</div>
+          <div class="product-title">Prism Arc</div>
+          <div class="price">$159 <small>USD</small></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- call to action & membership snippet -->
+    <div style="background: #2a1e3c; border-radius: 48px; padding: 48px 36px; margin: 48px 0 40px; text-align: center; color: white;">
+      <h2 style="font-size: 2rem; font-weight: 700;">join the <span style="background: #b17ef5; padding: 0 8px; border-radius: 40px;">NOVAÉON</span> orbit</h2>
+      <p style="margin: 16px auto 28px; max-width: 500px; opacity: 0.85;">Early access to limited drops, digital collectibles & members-only atelier.</p>
+      <button class="cta-btn" style="background: white; color: #1e1828;">subscribe →</button>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <h4>NOVAÉON</h4>
+        <p style="margin-top: 12px; max-width: 240px;">Radical essentials — future artifacts, crafted today.</p>
+      </div>
+      <div class="footer-links">
+          
+      </div>
+    </div>
+    <div class="copyright">
+      © 2026 NOVAÉON — crafted between earth & code. All aesthetics reserved.
+    </div>
+  </div>
+</footer>
+
+<!-- small script to fix any broken images using fallback (just in case) but not needed -->
+<script>
+  (function() {
+    // ensure all product images have a consistent fallback to keep ecom look professional
+    const images = document.querySelectorAll('.product-img');
+    images.forEach(img => {
+      img.addEventListener('error', function() {
+        if (!this.dataset.fallbackSet) {
+          this.dataset.fallbackSet = true;
+          this.src = 'https://picsum.photos/id/42/600/600';  // elegant abstract fallback
+        }
+      });
+    });
+    // hero image graceful fallback
+    const heroImg = document.querySelector('.hero-image img');
+    if (heroImg) {
+      heroImg.addEventListener('error', function() {
+        this.src = 'https://picsum.photos/id/64/500/500';
+      });
+    }
+  })();
+</script>
+
+</body>
+</html>
